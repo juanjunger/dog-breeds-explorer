@@ -2,6 +2,15 @@
 
 A full-stack application for browsing dog breeds using Vue 3 and Node.js with TypeScript, integrated with the Dog CEO API.
 
+## Visual Result
+Check this [recorded video](https://jam.dev/c/a6ded3db-ba81-4dd9-8f02-0752f2cae711) for fully feature reference
+
+<img width="1728" height="666" alt="image" src="https://github.com/user-attachments/assets/e05ae1d3-7731-46b3-8096-22ea684f06ad" />
+
+<img width="1728" height="957" alt="image" src="https://github.com/user-attachments/assets/6b25fb03-db56-4939-b030-5d7897c63f4e" />
+
+
+
 ## Features
 
 - Browse all available dog breeds
