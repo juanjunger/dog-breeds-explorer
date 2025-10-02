@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import cors from 'cors';
 import axios from 'axios';
 import { readFileSync, writeFileSync, existsSync } from 'fs';
@@ -45,7 +45,7 @@ function writeFavorites(breeds: string[]): void {
 // API Routes
 
 // GET /api/breeds - Get all dog breeds
-app.get('/api/breeds', async (req, res) => {
+app.get('/api/breeds', async (req: Request, res: Response) => {
   try {
     const response = await axios.get('https://dog.ceo/api/breeds/list/all');
     const breedsData = response.data.message;
@@ -70,7 +70,7 @@ app.get('/api/breeds', async (req, res) => {
 });
 
 // GET /api/breeds/:breed/images - Get images for a breed
-app.get('/api/breeds/:breed/images', async (req, res) => {
+app.get('/api/breeds/:breed/images', async (req: Request, res: Response) => {
   try {
     const { breed } = req.params;
     
@@ -97,7 +97,7 @@ app.get('/api/breeds/:breed/images', async (req, res) => {
 });
 
 // POST /api/favorites - Add favorite breed
-app.post('/api/favorites', (req, res) => {
+app.post('/api/favorites', (req: Request, res: Response) => {
   try {
     const { breed } = req.body;
     
@@ -120,7 +120,7 @@ app.post('/api/favorites', (req, res) => {
 });
 
 // GET /api/favorites - Get favorite breeds
-app.get('/api/favorites', (req, res) => {
+app.get('/api/favorites', (req: Request, res: Response) => {
   try {
     const favorites = readFavorites();
     res.json(favorites);
@@ -131,7 +131,7 @@ app.get('/api/favorites', (req, res) => {
 });
 
 // DELETE /api/favorites/:breed - Remove favorite breed
-app.delete('/api/favorites/:breed', (req, res) => {
+app.delete('/api/favorites/:breed', (req: Request, res: Response) => {
   try {
     const { breed } = req.params;
     const favorites = readFavorites();
@@ -151,7 +151,7 @@ app.delete('/api/favorites/:breed', (req, res) => {
 });
 
 // Health check endpoint
-app.get('/health', (req, res) => {
+app.get('/health', (req: Request, res: Response) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
